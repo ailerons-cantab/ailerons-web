@@ -16,17 +16,16 @@ export default function Header() {
     router.replace("/auth");
   };
 
-  return <header className="flex justify-between items-center px-8 py-4 border-b">
+  return <header className="flex justify-between items-center px-8 py-2 border-b border-t border-black h-14">
         <div className="flex items-center gap-2">
             <Image src="/ailerons_logo_white.svg" alt="ailerons logo" width={120} height={40}/>
         </div>
-        <nav className="flex items-center gap-6 text-sm font-medium">
-            <a href="#" className="hover:underline">Features</a>
-            <a href="#" className="hover:underline">Pricing</a>
-            <a href="#" className="hover:underline">About</a>
-            <a href="#" className="hover:underline">Contact</a>
-            <button onClick={async () => await handleLogout()} className="px-4 py-1 border rounded hover:bg-gray-100"> Log out</button>
-            <button className="px-4 py-1 bg-black text-white rounded hover:opacity-90"> Sign up</button>
+        <nav className="flex items-center gap-6 text-sm font-medium text-gray-500">
+            <a href="#" className="hover:text-black transition-colors">Features</a>
+            <a href="#" className="hover:text-black transition-colors">Pricing</a>
+            <a href="#" className="hover:text-black transition-colors">About</a>
+            <a href="#" className="hover:text-black transition-colors">Contact</a>
+            <button onClick={handleLogout} className="px-4 py-1 bg-black text-white rounded hover:opacity-90 transition">Log out</button>
         </nav>
     </header>
 }
