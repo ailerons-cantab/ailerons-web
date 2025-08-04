@@ -55,7 +55,9 @@ export const signIn = async (email: string, password: string) => {
   try {
     await account.getSession('current');
     await account.deleteSession('current');
-  } catch (_) {}
+  } catch (err: any) {
+    console.error('❌ signIn error:', err.message);
+  }
 
   return await account.createEmailPasswordSession(email, password);
 };

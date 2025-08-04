@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -17,23 +18,23 @@ export default function AuthPage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-useEffect(() => {
-  const checkUser = async () => {
-    console.log("User already logged in:", user);
-    try {
-      const loggedInUser = await getCurrentUser();
-      if (!loading && loggedInUser) {
-        router.replace("/home");
+  useEffect(() => {
+    const checkUser = async () => {
+      console.log("User already logged in:", user);
+      try {
+        const loggedInUser = await getCurrentUser();
+        if (!loading && loggedInUser) {
+          router.replace("/home");
+        }
+      } catch (err) {
+        console.error("Error fetching current user:", err);
+      } finally {
+        setLoading(false);
       }
-    } catch (err) {
-      console.error("Error fetching current user:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
 
-  checkUser();
-}, [user, loading, router]);
+    checkUser();
+  }, [user, loading, router, setLoading]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,7 +44,7 @@ useEffect(() => {
     try {
       const user = isLogin ? await signIn(email, password) : await createUser(email, password, firstName, lastName);
       console.log("User signed in/created:", user);
-      setUser(user)
+      setUser(user as any)
       router.replace("/home");
     } catch (err: any) {
       setError(err?.message || "Something went wrong");
@@ -115,8 +116,8 @@ useEffect(() => {
             {submitting
               ? "Loading..."
               : isLogin
-              ? "Sign in"
-              : "Sign up"}
+                ? "Sign in"
+                : "Sign up"}
           </button>
         </form>
 
