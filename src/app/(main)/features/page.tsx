@@ -1,12 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import Header from "../header";
 
 export default function FeaturesPage() {
 
   return <div className="min-h-screen bg-white text-gray-900">
-        <Header />
         <main className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-8 py-16 items-center">
             <div>
                 <h1 className="text-3xl font-bold mb-4">Features</h1>
