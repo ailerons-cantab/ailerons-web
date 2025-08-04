@@ -3,12 +3,12 @@
 import { Account, Client, ID, Databases, Query } from 'appwrite';
 
 const Config = {
-  endpoint: 'https://cloud.appwrite.io/v1',
-  projectId: '6713a83f000d07c7099d',
-  databaseId: '6713ab1800238ca39f74',
-  userCollectionId: '6713ab330032e418ce8e',
-  storageId: '6713abf5000e4702a73c',
-  companionCollectionId: '67dd5050003190d7098f',
+  endpoint: process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!,
+  projectId: process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!,
+  databaseId: process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!,
+  userCollectionId: process.env.NEXT_PUBLIC_APPWRITE_USER_COLLECTION_ID!,
+  storageId: process.env.NEXT_PUBLIC_APPWRITE_STORAGE_ID!,
+  companionCollectionId: process.env.NEXT_PUBLIC_APPWRITE_COMPANION_COLLECTION_ID!,
 };
 
 const client = new Client()
@@ -55,7 +55,9 @@ export const signIn = async (email: string, password: string) => {
   try {
     await account.getSession('current');
     await account.deleteSession('current');
-  } catch (_) {}
+  } catch (err: any) {
+    console.error('❌ signIn error:', err.message);
+  }
 
   return await account.createEmailPasswordSession(email, password);
 };
