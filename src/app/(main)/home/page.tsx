@@ -1,9 +1,18 @@
 "use client";
 
+<<<<<<< Updated upstream:src/app/(main)/home/page.tsx
 import Image from "next/image";
+=======
+import { useAppContext } from "@/context/useAppContext.hook";
+import Information from "./information";
+import Dashboard from "./components/dashboard";
+import DashboardShell from "./components/dashboardShell";
+>>>>>>> Stashed changes:src/app/home/page.tsx
 
 export default function HomePage() {
+    const { user, loading } = useAppContext();
 
+<<<<<<< Updated upstream:src/app/(main)/home/page.tsx
   return (
     <div className="min-h-screen bg-white text-gray-900">
         <main className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-8 py-16 items-center">
@@ -26,4 +35,17 @@ export default function HomePage() {
         </main>
     </div>
   );
+=======
+    if (loading) return null;
+
+    if (!user) return <Information />;
+
+    return (
+        <div className="min-h-screen bg-white text-gray-900">
+            <DashboardShell>
+                <Dashboard />
+            </DashboardShell>
+        </div>
+    );
+>>>>>>> Stashed changes:src/app/home/page.tsx
 }
