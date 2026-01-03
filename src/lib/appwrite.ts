@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // lib/appwrite.ts
-import { Account, Client, ID, Databases, Query } from 'appwrite';
+import { User } from '@/context/useAppContext.hook';
+import { Account, Client, ID, Databases } from 'appwrite';
 
 const Config = {
   endpoint: process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!,
@@ -18,12 +19,7 @@ const client = new Client()
 export const account = new Account(client);
 export const databases = new Databases(client);
 
-export const createUser = async (
-  email: string,
-  password: string,
-  firstName: string,
-  lastName: string
-) => {
+export const createUser = async ( email: string, password: string, firstName: string, lastName: string ) => {
   try {
     await account.deleteSession('current').catch(() => {});
     const fullName = `${firstName} ${lastName}`;
@@ -53,83 +49,34 @@ export const createUser = async (
 
 export const signIn = async (email: string, password: string) => {
   try {
-    await account.getSession('current');
-    await account.deleteSession('current');
-  } catch (err: any) {
-    console.error('❌ signIn error:', err.message);
-  }
-
-  return await account.createEmailPasswordSession(email, password);
-};
-
-export const logout = async () => {
-  try {
-    await account.deleteSession('current');
-  } catch (error) {
-    throw error;
+    return await account.createEmailPasswordSession(email, password);
+  } catch (err) {
+    console.error("❌ signIn error:", err);
+    throw err; 
   }
 };
 
-export const getCurrentUser = async () => {
+export const logout = async (): Promise<void> => {
   try {
-    const currentAccount = await account.get();
-    const userDocs = await databases.listDocuments(
-      Config.databaseId,
-      Config.userCollectionId,
-      [Query.equal('accountid', currentAccount.$id)]
-    );
-    return userDocs.documents[0] ?? null;
+    await account.deleteSession("current");
+  } catch (e) {
+    throw e;
+  }
+};
+
+export const getCurrentAccount = async () => {
+  try {
+    return await account.get();
   } catch (error: any) {
     if (error.code === 401) return null;
     throw error;
   }
 };
 
-export const getUserAndCompanions = async () => {
-  try {
-    const currentAccount = await account.get();
-    const userDocs = await databases.listDocuments(
-      Config.databaseId,
-      Config.userCollectionId,
-      [Query.equal('accountid', currentAccount.$id)]
-    );
-    const companionsDocs = await databases.listDocuments(
-      Config.databaseId,
-      Config.companionCollectionId,
-      [Query.equal('ownerAccountId', currentAccount.$id)]
-    );
-
-    return {
-      user: userDocs.documents[0],
-      companions: companionsDocs.documents,
-    };
-  } catch (error: any) {
-    throw error;
-  }
-};
-
-export const createCompanion = async (data: Record<string, any>) => {
-  return await databases.createDocument(
-    Config.databaseId,
-    Config.companionCollectionId,
-    ID.unique(),
-    data
-  );
-};
-
-
-export const updateProfile = async (
-  collectionId: string,
-  docId: string,
-  data: Record<string, any>
-) => {
-  return await databases.updateDocument(
-    Config.databaseId,
-    collectionId,
-    docId,
-    data
-  );
-};
-
-
-export { ID };
+export const normaliseUserFromAccount = (accountData: any): User => {
+  return {
+    $id: accountData.$id,
+    email: accountData.email,
+    name: accountData.name || undefined,
+  };
+}
