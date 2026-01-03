@@ -2,6 +2,7 @@
 
 import React, {
     createContext,
+    useCallback,
     useContext,
     useEffect,
     useMemo,
@@ -31,26 +32,25 @@ export const AppContextProvider = ({ children }: { children: React.ReactNode }) 
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
-    const refreshUser = async (): Promise<User | null> => {
+    const refreshUser = useCallback(async (): Promise<User | null> => {
         setLoading(true);
         try {
             const acc = await getCurrentAccount();
-            console.log("Refreshed user account:", acc);
-            const user = acc ? normaliseUserFromAccount(acc) : null;
-            setUser(user);
-            return user;
+            const nextUser = acc ? normaliseUserFromAccount(acc) : null;
+            setUser(nextUser);
+            return nextUser;
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
 
     useEffect(() => {
         let cancelled = false;
 
         (async () => {
+            setLoading(true);
             try {
                 const acc = await getCurrentAccount();
-                console.log("Fetched current account on mount:", acc);
                 if (cancelled) return;
                 setUser(acc ? normaliseUserFromAccount(acc) : null);
             } finally {
@@ -65,7 +65,7 @@ export const AppContextProvider = ({ children }: { children: React.ReactNode }) 
 
     const value = useMemo(
         () => ({ user, loading, setUser, setLoading, refreshUser }),
-        [user, loading]
+        [user, loading, refreshUser]
     );
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

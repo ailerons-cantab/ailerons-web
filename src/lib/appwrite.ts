@@ -66,12 +66,7 @@ export const logout = async (): Promise<void> => {
 
 export const getCurrentAccount = async () => {
   try {
-    const acc = await account.get();
-    console.log("Current account fetched:", acc);
-    console.log("Account ID:", acc.$id);
-    console.log("Account Email:", acc.email);
-    console.log("Account Name:", acc.name);
-    return acc;
+    return await account.get();
   } catch (error: any) {
     if (error.code === 401) return null;
     throw error;
@@ -79,7 +74,6 @@ export const getCurrentAccount = async () => {
 };
 
 export const normaliseUserFromAccount = (accountData: any): User => {
-  console.log("Normalising user from account data:", accountData);
   return {
     $id: accountData.$id,
     email: accountData.email,
