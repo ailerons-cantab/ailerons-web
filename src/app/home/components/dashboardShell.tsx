@@ -2,8 +2,15 @@
 
 import type { ReactNode } from "react";
 import LeftMenu from "../(protected)/(dashboard)/components/leftMenu";
+import { useAppContext } from "@/context/useAppContext.hook";
 
 export default function DashboardShell({ children }: { children: ReactNode }) {
+
+    const { user } = useAppContext();
+
+    console.log("Dashboard shell:", user);
+
+
     return (
         <div className="max-w-[1400px] mx-auto px-6 py-6">
             <div className="flex gap-6">

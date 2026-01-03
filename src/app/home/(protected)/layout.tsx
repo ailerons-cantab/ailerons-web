@@ -8,6 +8,8 @@ export default function ProtectedHomeLayout({ children }: { children: React.Reac
     const router = useRouter();
     const { user, loading } = useAppContext();
 
+    console.log("ProtectedHomeLayout user:", user);
+
     useEffect(() => {
         if (loading) return;
         if (!user?.email) router.replace("/auth");

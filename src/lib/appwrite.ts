@@ -79,6 +79,7 @@ export const getCurrentAccount = async () => {
 };
 
 export const normaliseUserFromAccount = (accountData: any): User => {
+  console.log("Normalising user from account data:", accountData);
   return {
     $id: accountData.$id,
     email: accountData.email,
