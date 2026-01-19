@@ -2,23 +2,25 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Logo } from "@/app/logo";
 
-type NavItem = { label: string, href: string };
+type NavItem = {
+    label: string;
+    href: string;
+    icon: string;
+};
 
 const NAV_ITEMS: NavItem[] = [
-    { label: "Dashboard", href: "/home" },
-    { label: "Travel Requests", href: "/home/travel-requests" },
-    { label: "My Offers", href: "/home/my-offers" },
-    { label: "Messages", href: "/home/messages" },
-    { label: "Profile", href: "/home/profile" },
-    { label: "Settings", href: "/home/settings" },
+    { label: "Dashboard", href: "/home", icon: "📊" },
+    { label: "Travel Requests", href: "/home/travel-requests", icon: "🧾" },
+    { label: "My Offers", href: "/home/my-offers", icon: "🏷️" },
+    { label: "Messages", href: "/home/messages", icon: "💬" },
+    { label: "Profile", href: "/home/profile", icon: "👤" },
+    { label: "Settings", href: "/home/settings", icon: "🛠️" },
 ];
 
 const isActive = (pathname: string, href: string) => {
-    if (href === "/home") {
-        return pathname === "/home";
-    }
-
+    if (href === "/home") return pathname === "/home";
     return pathname === href || pathname.startsWith(`${href}/`);
 };
 
@@ -26,8 +28,11 @@ export default function LeftMenu() {
     const pathname = usePathname();
 
     return (
-        <aside className="border border-gray-200 rounded-lg p-4 h-fit lg:sticky lg:top-6">
-            <div className="text-sm font-semibold mb-3">Menu</div>
+        <aside className="w-64 bg-white border border-gray-200 rounded-xl p-4 h-fit lg:sticky lg:top-6">
+            {/* Logo */}
+            <div className="mb-4">
+                <Logo size="md" />
+            </div>
 
             <nav className="flex flex-col gap-1">
                 {NAV_ITEMS.map((item) => {
@@ -38,13 +43,14 @@ export default function LeftMenu() {
                             key={item.href}
                             href={item.href}
                             className={[
-                                "px-3 py-2 rounded text-sm border transition",
+                                "flex items-center gap-3 px-3 py-2 text-sm transition-colors text-gray-700 hover:text-black",
                                 active
-                                    ? "bg-black text-white border-black"
-                                    : "bg-white text-gray-700 border-transparent hover:border-gray-200 hover:bg-gray-50",
+                                    ? "border-t-1 border-b-1 border-gray-200"
+                                    : "",
                             ].join(" ")}
                         >
-                            {item.label}
+                            <span className="w-5 text-center">{item.icon}</span>
+                            <span>{item.label}</span>
                         </Link>
                     );
                 })}
