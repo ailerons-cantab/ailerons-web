@@ -5,7 +5,7 @@ import Footer from "../footer";
 
 export default function MainLayout({ children }: { children: ReactNode }) {
 
-    // layout on /home
+    // layout on /home & /*
 
     console.log("MainLayout rendered");
 
