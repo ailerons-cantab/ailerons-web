@@ -5,56 +5,32 @@ import Image from "next/image";
 export default function ContactPage() {
     return (
         <div className="min-h-screen bg-white text-gray-900">
-            {/* Hero */}
             <section className="border-b-2 border-gray-200">
                 <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-8 py-14 md:grid-cols-2">
                     <div>
-                        <h1 className="text-4xl font-bold leading-tight">
-                            Let’s connect – Your
-                            <br />
-                            journey with Ailerons
-                            <br />
-                            starts here
-                        </h1>
-
+                        <h1 className="text-4xl font-bold leading-tight">Let’s connect – Your<br />journey with Ailerons<br />starts here</h1>
                         <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-700">
                             Are you ready to transform your travel agency business? Join the Ailerons platform to access travel
                             requests, submit offers and win more business. It’s easy to use and built to keep travel agencies
                             competitive in a digital-first world.
                         </p>
-
                         <div className="mt-6 flex flex-wrap gap-3">
-                            <button className="rounded-sm bg-black px-4 py-2 text-xs font-medium text-white transition-opacity hover:opacity-90">
-                                Send message
-                            </button>
-                            <button className="rounded-sm border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-gray-900 transition-colors hover:border-gray-400">
-                                Schedule a call
-                            </button>
+                            <button className="rounded-sm bg-black px-4 py-2 text-xs font-medium text-white transition-opacity hover:opacity-90">Send message</button>
+                            <button className="rounded-sm border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-gray-900 transition-colors hover:border-gray-400">Schedule a call</button>
                         </div>
                     </div>
 
                     <div className="flex justify-center md:justify-end">
                         <div className="w-full max-w-xl border border-gray-300 bg-white p-6">
-                            <Image
-                                src="/telephone-pylon.png"
-                                alt="telephone pylon"
-                                width={720}
-                                height={480}
-                                className="h-auto w-full object-contain"
-                                priority
-                            />
+                            <Image src="/telephone-pylon.png" alt="telephone pylon" width={720} height={480} className="h-auto w-full object-contain" priority />
                         </div>
                     </div>
                 </div>
             </section>
-
-            {/* Contact section */}
             <section className="border-b-2 border-gray-200">
                 <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-8 py-14 md:grid-cols-2">
-                    {/* Left info */}
                     <div>
                         <h2 className="text-sm font-semibold text-gray-900">Contact information</h2>
-
                         <div className="mt-6 space-y-5 text-sm text-gray-700">
                             <div className="flex gap-3">
                                 <span className="w-5 text-center">📍</span>
@@ -66,7 +42,6 @@ export default function ContactPage() {
                                     <div>PO6 4TY</div>
                                 </div>
                             </div>
-
                             <div className="flex gap-3">
                                 <span className="w-5 text-center">📞</span>
                                 <div>
@@ -74,7 +49,6 @@ export default function ContactPage() {
                                     <div>+44 7 156 455 888</div>
                                 </div>
                             </div>
-
                             <div className="flex gap-3">
                                 <span className="w-5 text-center">✉️</span>
                                 <div>
@@ -82,7 +56,6 @@ export default function ContactPage() {
                                     <div>hello@ailerons.co.uk</div>
                                 </div>
                             </div>
-
                             <div className="flex gap-3">
                                 <span className="w-5 text-center">📅</span>
                                 <div>
@@ -90,7 +63,6 @@ export default function ContactPage() {
                                     <div>Book a video call</div>
                                 </div>
                             </div>
-
                             <div className="flex gap-3">
                                 <span className="w-5 text-center">💬</span>
                                 <div>
@@ -98,39 +70,20 @@ export default function ContactPage() {
                                     <div>Start a Whatsapp chat</div>
                                 </div>
                             </div>
-
                             <div className="pt-2">
                                 <div className="text-xs font-semibold text-gray-900">Connect with us</div>
                                 <div className="mt-3 flex items-center gap-3">
-                                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200">
-                                        in
-                                    </span>
-                                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200">
-                                        x
-                                    </span>
-                                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200">
-                                        ⌁
-                                    </span>
-                                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200">
-                                        f
-                                    </span>
+                                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200">in</span>
+                                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200">x</span>
+                                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200">⌁</span>
+                                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200">f</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    {/* Right form */}
                     <div className="rounded-lg border border-gray-300 bg-white p-6">
                         <h3 className="text-sm font-semibold text-gray-900">Send us a message</h3>
-
-                        <form
-                            className="mt-5 space-y-4"
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                // placeholder for now
-                                console.log("contact_submit");
-                            }}
-                        >
+                        <form className="mt-5 space-y-4" onSubmit={(e) => { e.preventDefault(); console.log("contact_submit"); }}>
                             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                                 <div>
                                     <label className="text-xs text-gray-600">First name</label>
@@ -141,20 +94,14 @@ export default function ContactPage() {
                                     <input className="mt-1 h-9 w-full rounded border border-gray-300 px-3 text-sm outline-none focus:border-gray-900" />
                                 </div>
                             </div>
-
                             <div>
                                 <label className="text-xs text-gray-600">Email address</label>
-                                <input
-                                    type="email"
-                                    className="mt-1 h-9 w-full rounded border border-gray-300 px-3 text-sm outline-none focus:border-gray-900"
-                                />
+                                <input type="email" className="mt-1 h-9 w-full rounded border border-gray-300 px-3 text-sm outline-none focus:border-gray-900" />
                             </div>
-
                             <div>
                                 <label className="text-xs text-gray-600">Phone number (optional)</label>
                                 <input className="mt-1 h-9 w-full rounded border border-gray-300 px-3 text-sm outline-none focus:border-gray-900" />
                             </div>
-
                             <div>
                                 <label className="text-xs text-gray-600">Subject</label>
                                 <select className="mt-1 h-9 w-full rounded border border-gray-300 px-3 text-sm text-gray-700 outline-none focus:border-gray-900">
@@ -165,23 +112,17 @@ export default function ContactPage() {
                                     <option>Other</option>
                                 </select>
                             </div>
-
                             <div>
                                 <label className="text-xs text-gray-600">Message</label>
                                 <textarea className="mt-1 min-h-[110px] w-full rounded border border-gray-300 px-3 py-2 text-sm outline-none focus:border-gray-900" />
                             </div>
-
                             <div className="flex justify-end">
-                                <button className="rounded-sm bg-gray-700 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-gray-800">
-                                    Send message
-                                </button>
+                                <button className="rounded-sm bg-gray-700 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-gray-800">Send message</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </section>
-
-            {/* FAQ preview */}
             <section>
                 <div className="mx-auto max-w-6xl px-8 py-14">
                     <div className="text-center">
@@ -217,11 +158,8 @@ export default function ContactPage() {
                             </div>
                         ))}
                     </div>
-
                     <div className="mt-10 flex justify-center">
-                        <a href="/faq" className="text-sm text-gray-700 transition-colors hover:text-gray-900">
-                            View all FAQs →
-                        </a>
+                        <a href="/home/faq" className="text-sm text-gray-700 transition-colors hover:text-gray-900">View all FAQs →</a>
                     </div>
                 </div>
             </section>

@@ -4,11 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/app/logo";
 
-type NavItem = {
-    label: string;
-    href: string;
-    icon: string;
-};
+type NavItem = { label: string; href: string; icon: string };
 
 const NAV_ITEMS: NavItem[] = [
     { label: "Dashboard", href: "/dashboard", icon: "📊" },
@@ -42,12 +38,7 @@ export default function LeftMenu() {
                         <Link
                             key={item.href}
                             href={item.href}
-                            className={[
-                                "flex items-center gap-3 px-3 py-2 text-sm transition-colors text-gray-700 hover:text-black",
-                                active
-                                    ? "border-t-1 border-b-1 border-gray-200"
-                                    : "",
-                            ].join(" ")}
+                            className={["flex items-center gap-3 px-3 py-2 text-sm transition-colors text-gray-700 hover:text-black", active ? "border-t-1 border-b-1 border-gray-200" : ""].join(" ")}
                         >
                             <span className="w-5 text-center">{item.icon}</span>
                             <span>{item.label}</span>
