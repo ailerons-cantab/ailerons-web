@@ -1,5 +1,6 @@
-import Header from "../header";
-import Footer from "../footer";
+import Footer from "@/app/footer";
+import Header from "@/app/header";
+
 
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
 
