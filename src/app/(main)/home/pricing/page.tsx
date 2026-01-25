@@ -46,18 +46,10 @@ const plans: Plan[] = [
 export default function PricingPage() {
     return (
         <div className="space-y-16 pb-24">
-            {/* Hero */}
             <header className="text-center mx-auto pt-24 pb-10">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight max-w-3xl mx-auto">
-                    Simple, transparent pricing
-                </h1>
-
-                <p className="mt-6 text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto">
-                    Start for free and grow in confidence. No hidden fees, so no surprises.
-                </p>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight max-w-3xl mx-auto">Simple, transparent pricing</h1>
+                <p className="mt-6 text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto">Start for free and grow in confidence. No hidden fees, so no surprises.</p>
             </header>
-
-            {/* Plans */}
             <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
                 {plans.map((p) => (
                     <PlanCard key={p.name} plan={p} />
@@ -70,30 +62,18 @@ export default function PricingPage() {
 function PlanCard({ plan }: { plan: Plan }) {
     return (
         <div className="border border-gray-200 rounded-2xl bg-white overflow-hidden">
-            {/* Top */}
             <div className="p-10">
                 <h2 className="text-2xl font-bold">{plan.name}</h2>
                 <p className="text-gray-600 mt-3">{plan.tagline}</p>
-
                 <div className="mt-8 flex items-end gap-2">
                     <span className="text-5xl font-bold leading-none">
                         {plan.price}
                     </span>
                     <span className="text-gray-600 pb-1">{plan.period}</span>
                 </div>
-
-                <Link
-                    href={plan.cta.href}
-                    className="mt-10 block w-full rounded-lg bg-slate-900 text-white py-3.5 text-center font-medium hover:opacity-90 transition"
-                >
-                    {plan.cta.label}
-                </Link>
+                <Link href={plan.cta.href} className="mt-10 block w-full rounded-lg bg-slate-900 text-white py-3.5 text-center font-medium hover:opacity-90 transition">{plan.cta.label}</Link>
             </div>
-
-            {/* Divider */}
             <div className="border-t border-gray-200" />
-
-            {/* Features */}
             <div className="p-10">
                 <ul className="space-y-5">
                     {plan.bullets.map((b) => (
@@ -103,19 +83,12 @@ function PlanCard({ plan }: { plan: Plan }) {
                         </li>
                     ))}
                 </ul>
-
-                <div className="mt-10 text-center font-semibold">
-                    {plan.footnote}
-                </div>
+                <div className="mt-10 text-center font-semibold">{plan.footnote}</div>
             </div>
         </div>
     );
 }
 
 function CheckIcon() {
-    return (
-        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-green-600 text-white text-sm shrink-0" aria-hidden>
-            ✓
-        </span>
-    );
+    return <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-green-600 text-white text-sm shrink-0" aria-hidden>✓</span>
 }

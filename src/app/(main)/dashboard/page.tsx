@@ -21,7 +21,6 @@ export default function Dashboard() {
 
     return (
         <div className="space-y-6">
-            {/* Top header row */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
                     <h1 className="text-2xl font-bold">Dashboard</h1>
@@ -35,16 +34,12 @@ export default function Dashboard() {
                     <Link href="/home/profile" className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 text-sm">Edit profile</Link>
                 </div>
             </div>
-
-            {/* KPI tiles */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <StatCard title="New requests" value="12" subtitle="Last 7 days" />
                 <StatCard title="Offers sent" value="5" subtitle="Last 7 days" />
                 <StatCard title="Active chats" value="2" subtitle="Right now" />
                 <StatCard title="Conversion" value="18%" subtitle="Last 30 days" />
             </div>
-
-            {/* Quick navigation */}
             <div className="border border-gray-200 rounded-lg p-5">
                 <div className="flex items-center justify-between mb-4">
                     <h2 className="font-semibold">Quick actions</h2>
@@ -67,8 +62,6 @@ export default function Dashboard() {
                     ))}
                 </div>
             </div>
-
-            {/* Placeholder for main dashboard content */}
             <div className="border border-gray-200 rounded-lg p-5">
                 <h2 className="font-semibold mb-2">Activity</h2>
                 <p className="text-sm text-gray-600">

@@ -9,10 +9,13 @@ export default function ProtectedHomeLayout({ children }: { children: React.Reac
     const router = useRouter();
     const { user, loading } = useAppContext();
 
-    useEffect(() => {
-        if (loading) return;
-        if (!user?.email) router.replace("/home");
-    }, [loading, user?.email, router]);
+    useEffect(
+        () => {
+            if (loading) return;
+            if (!user?.email) router.replace("/home");
+        },
+        [loading, user?.email, router]
+    );
 
     if (loading) return null;
     if (!user?.email) return null;
@@ -23,7 +26,6 @@ export default function ProtectedHomeLayout({ children }: { children: React.Reac
                 <div className="w-[260px] shrink-0">
                     <LeftMenu />
                 </div>
-
                 <div className="flex-1 min-w-0">
                     <section className="border border-gray-200 rounded-lg p-6 min-h-[70vh] bg-white">
                         {children}

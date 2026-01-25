@@ -56,14 +56,9 @@ export default function AuthPage() {
                     <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="border p-2 rounded" required />
                     <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="border p-2 rounded" required />
                     {error && <p className="text-red-500 text-sm">{error}</p>}
-                    <button type="submit" disabled={submitting} className="bg-black text-white py-2 rounded hover:opacity-90">
-                        {submitting ? "Loading..." : "Sign up"}
-                    </button>
+                    <button type="submit" disabled={submitting} className="bg-black text-white py-2 rounded hover:opacity-90">{submitting ? "Loading..." : "Sign up"}</button>
                 </form>
-
-                <button className="text-gray-500 text-sm mt-4 underline" onClick={() => router.push("/login")}>
-                    Already have an account? Sign in
-                </button>
+                <button className="text-gray-500 text-sm mt-4 underline" onClick={() => router.push("/login")}>Already have an account? Sign in</button>
             </div>
         </div>
     );
