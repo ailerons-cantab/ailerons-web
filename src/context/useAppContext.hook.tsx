@@ -44,24 +44,12 @@ export const AppContextProvider = ({ children }: { children: React.ReactNode }) 
         }
     }, []);
 
-    useEffect(() => {
-        let cancelled = false;
-
-        (async () => {
-            setLoading(true);
-            try {
-                const acc = await getCurrentAccount();
-                if (cancelled) return;
-                setUser(acc ? normaliseUserFromAccount(acc) : null);
-            } finally {
-                if (!cancelled) setLoading(false);
-            }
-        })();
-
-        return () => {
-            cancelled = true;
-        };
-    }, []);
+    useEffect(
+        () => {
+            void refreshUser();
+        },
+        [refreshUser]
+    );
 
     const value = useMemo(
         () => ({ user, loading, setUser, setLoading, refreshUser }),
