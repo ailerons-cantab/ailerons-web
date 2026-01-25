@@ -33,10 +33,16 @@ export default function Header() {
                 </a>
 
                 <button
-                    onClick={user ? handleLogout : () => router.push("/auth")}
+                    onClick={user ? handleLogout : () => router.push("/login")}
                     className="ml-2 px-3 py-1 bg-gray-800 text-white rounded-sm text-xs leading-none hover:bg-gray-900 transition-colors"
                 >
                     {user ? "Log out" : "Log in"}
+                </button>
+                <button
+                    onClick={user ? () => router.push("/dashboard") : () => router.push("/register")}
+                    className="ml-2 px-3 py-1 bg-gray-800 text-white rounded-sm text-xs leading-none hover:bg-gray-900 transition-colors"
+                >
+                    {user ? "Dashboard" : "Register"}
                 </button>
             </nav>
         </header>

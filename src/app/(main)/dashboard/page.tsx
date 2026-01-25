@@ -31,18 +31,8 @@ export default function Dashboard() {
                 </div>
 
                 <div className="flex gap-2">
-                    <Link
-                        href="/home/travel-requests"
-                        className="px-4 py-2 bg-black text-white rounded hover:opacity-90 text-sm"
-                    >
-                        View requests
-                    </Link>
-                    <Link
-                        href="/home/profile"
-                        className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 text-sm"
-                    >
-                        Edit profile
-                    </Link>
+                    <Link href="/home/travel-requests" className="px-4 py-2 bg-black text-white rounded hover:opacity-90 text-sm">View requests</Link>
+                    <Link href="/home/profile" className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 text-sm">Edit profile</Link>
                 </div>
             </div>
 
@@ -63,11 +53,7 @@ export default function Dashboard() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {quickLinks.map((l) => (
-                        <Link
-                            key={l.href}
-                            href={l.href}
-                            className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition"
-                        >
+                        <Link key={l.href} href={l.href} className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition">
                             <div className="flex items-start justify-between gap-3">
                                 <div>
                                     <div className="font-medium">{l.label}</div>
@@ -97,15 +83,7 @@ export default function Dashboard() {
     );
 }
 
-function StatCard({
-    title,
-    value,
-    subtitle,
-}: {
-    title: string;
-    value: string;
-    subtitle?: string;
-}) {
+function StatCard({ title, value, subtitle }: { title: string; value: string; subtitle?: string }) {
     return (
         <div className="border border-gray-200 rounded-lg p-4">
             <div className="text-sm text-gray-600">{title}</div>

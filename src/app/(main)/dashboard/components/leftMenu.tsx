@@ -11,16 +11,16 @@ type NavItem = {
 };
 
 const NAV_ITEMS: NavItem[] = [
-    { label: "Dashboard", href: "/home", icon: "📊" },
-    { label: "Travel Requests", href: "/home/travel-requests", icon: "🧾" },
-    { label: "My Offers", href: "/home/my-offers", icon: "🏷️" },
-    { label: "Messages", href: "/home/messages", icon: "💬" },
-    { label: "Profile", href: "/home/profile", icon: "👤" },
-    { label: "Settings", href: "/home/settings", icon: "🛠️" },
+    { label: "Dashboard", href: "/dashboard", icon: "📊" },
+    { label: "Travel Requests", href: "/dashboard/travel-requests", icon: "🧾" },
+    { label: "My Offers", href: "/dashboard/my-offers", icon: "🏷️" },
+    { label: "Messages", href: "/dashboard/messages", icon: "💬" },
+    { label: "Profile", href: "/dashboard/profile", icon: "👤" },
+    { label: "Settings", href: "/dashboard/settings", icon: "🛠️" },
 ];
 
 const isActive = (pathname: string, href: string) => {
-    if (href === "/home") return pathname === "/home";
+    if (href === "/dashboard") return pathname === "/dashboard";
     return pathname === href || pathname.startsWith(`${href}/`);
 };
 

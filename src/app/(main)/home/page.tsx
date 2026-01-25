@@ -1,23 +1,18 @@
 "use client";
 
-import Dashboard from "@/app/home/components/dashboard";
-import DashboardShell from "@/app/home/components/dashboardShell";
-import Information from "@/app/home/information";
-import { useAppContext } from "@/context/useAppContext.hook";
-
+import AgencyBenefits from "./components/agencyBenefits";
+import HowItWorksSection from "./components/howItWorks";
+import Intro from "./components/intro";
+import WhyChooseAileronsSection from "./components/whyChooseAilerons";
 
 export default function HomePage() {
-    const { user, loading } = useAppContext();
-
-    if (loading) return null;
-
-    if (!user) return <Information />;
 
     return (
-        <div className="min-h-screen bg-white text-gray-900">
-            <DashboardShell>
-                <Dashboard />
-            </DashboardShell>
-        </div>
+        <main>
+            <Intro />
+            <HowItWorksSection />
+            <WhyChooseAileronsSection />
+            <AgencyBenefits />
+        </main>
     );
 }

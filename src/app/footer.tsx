@@ -11,10 +11,7 @@ function FooterColumn({ title, links }: { title: string; links: FooterColumnLink
             <ul className="mt-4 space-y-3">
                 {links.map((link) => (
                     <li key={link.href}>
-                        <Link
-                            href={link.href}
-                            className="text-sm text-gray-600 transition-colors hover:text-gray-900"
-                        >
+                        <Link href={link.href} className="text-sm text-gray-600 transition-colors hover:text-gray-900">
                             {link.label}
                         </Link>
                     </li>
@@ -24,15 +21,7 @@ function FooterColumn({ title, links }: { title: string; links: FooterColumnLink
     );
 }
 
-function SocialIconLink({
-    href,
-    label,
-    children,
-}: {
-    href: string;
-    label: string;
-    children: React.ReactNode;
-}) {
+function SocialIconLink({ href, label, children, }: { href: string; label: string; children: React.ReactNode }) {
     return (
         <Link
             href={href}
@@ -110,32 +99,17 @@ export default function Footer() {
                     <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
                         <FooterColumn
                             title="Product"
-                            links={[
-                                { label: "Features", href: "/features" },
-                                { label: "Pricing", href: "/pricing" },
-                                { label: "Case studies", href: "/case-studies" },
-                                { label: "FAQ", href: "/faq" },
-                            ]}
+                            links={[{ label: "Features", href: "/features" }, { label: "Pricing", href: "/pricing" }, { label: "Case studies", href: "/case-studies" }, { label: "FAQ", href: "/faq" }]}
                         />
 
                         <FooterColumn
                             title="Resources"
-                            links={[
-                                { label: "Blog", href: "/blog" },
-                                { label: "Help centre", href: "/help-centre" },
-                                { label: "Webinars", href: "/webinars" },
-                                { label: "Community", href: "/community" },
-                            ]}
+                            links={[{ label: "Blog", href: "/blog" }, { label: "Help centre", href: "/help-centre" }, { label: "Webinars", href: "/webinars" }, { label: "Community", href: "/community" }]}
                         />
 
                         <FooterColumn
                             title="Company"
-                            links={[
-                                { label: "About us", href: "/about" },
-                                { label: "Careers", href: "/careers" },
-                                { label: "Contact", href: "/contact" },
-                                { label: "Press", href: "/press" },
-                            ]}
+                            links={[{ label: "About us", href: "/about" }, { label: "Careers", href: "/careers" }, { label: "Contact", href: "/contact" }, { label: "Press", href: "/press" }]}
                         />
                     </div>
                 </div>
