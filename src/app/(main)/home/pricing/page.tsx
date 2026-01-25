@@ -114,10 +114,7 @@ function PlanCard({ plan }: { plan: Plan }) {
 
 function CheckIcon() {
     return (
-        <span
-            className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-green-600 text-white text-sm shrink-0"
-            aria-hidden
-        >
+        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-green-600 text-white text-sm shrink-0" aria-hidden>
             ✓
         </span>
     );

@@ -99,17 +99,17 @@ export default function Footer() {
                     <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
                         <FooterColumn
                             title="Product"
-                            links={[{ label: "Features", href: "/features" }, { label: "Pricing", href: "/pricing" }, { label: "Case studies", href: "/case-studies" }, { label: "FAQ", href: "/faq" }]}
+                            links={[{ label: "Features", href: "/home/features" }, { label: "Pricing", href: "/home/pricing" }, { label: "Case studies", href: "/home/case-studies" }, { label: "FAQ", href: "/home/faq" }]}
                         />
 
                         <FooterColumn
                             title="Resources"
-                            links={[{ label: "Blog", href: "/blog" }, { label: "Help centre", href: "/help-centre" }, { label: "Webinars", href: "/webinars" }, { label: "Community", href: "/community" }]}
+                            links={[{ label: "Blog", href: "/home/blog" }, { label: "Help centre", href: "/home/help-centre" }, { label: "Webinars", href: "/home/webinars" }, { label: "Community", href: "/home/community" }]}
                         />
 
                         <FooterColumn
                             title="Company"
-                            links={[{ label: "About us", href: "/about" }, { label: "Careers", href: "/careers" }, { label: "Contact", href: "/contact" }, { label: "Press", href: "/press" }]}
+                            links={[{ label: "About us", href: "/home/about" }, { label: "Careers", href: "/home/careers" }, { label: "Contact", href: "/home/contact" }, { label: "Press", href: "/home/press" }]}
                         />
                     </div>
                 </div>
