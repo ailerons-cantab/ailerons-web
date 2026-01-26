@@ -1,0 +1,57 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Logo } from "@/app/logo";
+import ProfileFooter from "./profileFooter";
+
+type NavItem = { label: string; href: string; icon: string };
+
+const NAV_ITEMS: NavItem[] = [
+    { label: "Dashboard", href: "/dashboard", icon: "📊" },
+    { label: "Travel Requests", href: "/dashboard/travel-requests", icon: "🧾" },
+    { label: "My Offers", href: "/dashboard/my-offers", icon: "🏷️" },
+    { label: "Messages", href: "/dashboard/messages", icon: "💬" },
+    { label: "Profile", href: "/dashboard/profile", icon: "👤" },
+    { label: "Settings", href: "/dashboard/settings", icon: "🛠️" },
+];
+
+const isActive = (pathname: string, href: string) => {
+    if (href === "/dashboard") return pathname === "/dashboard";
+    return pathname === href || pathname.startsWith(`${href}/`);
+};
+
+export default function LeftMenu() {
+    const pathname = usePathname();
+
+    return (
+        <aside className={["w-64 bg-white border border-gray-200 rounded-xl", "flex flex-col", "lg:sticky lg:top-6 lg:h-[calc(100vh-3rem)]"].join(" ")}>
+            <div className="p-4">
+                <div className="mb-4">
+                    <Logo size="md" />
+                </div>
+                <nav className="flex flex-col gap-1">
+                    {NAV_ITEMS.map((item) => {
+                        const active = isActive(pathname, item.href);
+                        return (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                className={[
+                                    "flex items-center gap-3 px-3 py-2 text-sm transition-colors text-gray-700 hover:text-black",
+                                    active ? "border-t-1 border-b-1 border-gray-200" : "",
+                                ].join(" ")}
+                            >
+                                <span className="w-5 text-center">{item.icon}</span>
+                                <span>{item.label}</span>
+                            </Link>
+                        );
+                    })}
+                </nav>
+            </div>
+            <div className="mt-auto">
+                <ProfileFooter />
+            </div>
+        </aside>
+    );
+}
