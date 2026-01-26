@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAppContext } from "@/context/useAppContext.hook";
-import LeftMenu from "./components/leftMenu";
+import LeftMenu from "../../sidebar/leftMenu";
 
 export default function ProtectedHomeLayout({ children }: { children: React.ReactNode }) {
     const router = useRouter();

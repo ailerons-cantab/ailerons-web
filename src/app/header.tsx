@@ -12,23 +12,34 @@ export default function Header() {
     const handleLogout = async () => {
         await logout();
         setUser(null);
+        router.push("/home");
     };
 
+    const primaryAction = user ? { label: "Dashboard", onClick: () => router.push("/dashboard") } : { label: "Sign up", onClick: () => router.push("/register") };
+    const secondaryAction = user ? { label: "Log out", onClick: handleLogout } : { label: "Log in", onClick: () => router.push("/login") };
+
     return (
-        <header className="flex justify-between items-center px-8 border-b-2 border-t-2 border-black h-10">
-            <Logo size="sm" />
-            <nav className="flex items-center gap-3 text-xs font-normal text-gray-500 tracking-[0.01em] leading-none relative top-[-0.5px]">
-                <a href="/home/features" className="hover:text-black transition-colors">Features</a>
-                <a href="/home/pricing" className="hover:text-black transition-colors">Pricing</a>
-                <a href="/home/about" className="hover:text-black transition-colors">About</a>
-                <a href="/home/contact" className="hover:text-black transition-colors">Contact</a>
-                <button onClick={user ? handleLogout : () => router.push("/login")} className="ml-2 px-3 py-1 bg-gray-800 text-white rounded-sm text-xs leading-none hover:bg-gray-900 transition-colors">
-                    {user ? "Log out" : "Log in"}
-                </button>
-                <button onClick={user ? () => router.push("/dashboard") : () => router.push("/register")} className="ml-2 px-3 py-1 bg-gray-800 text-white rounded-sm text-xs leading-none hover:bg-gray-900 transition-colors">
-                    {user ? "Dashboard" : "Register"}
-                </button>
-            </nav>
+        <header className="h-16 border-y border-gray-200 bg-white">
+            <div className="max-w-6xl mx-auto h-full px-6 flex items-center justify-between">
+                <Logo size="md" />
+                <nav className="flex items-center gap-6 text-sm font-normal text-gray-500">
+                    <a href="/home/features" className="hover:text-black transition-colors">Overview</a>
+                    <a href="/home/pricing" className="hover:text-black transition-colors">Pricing</a>
+                    <a href="/home/about" className="hover:text-black transition-colors">About</a>
+                    <a href="/home/contact" className="hover:text-black transition-colors">Contact</a>
+                    <div className="flex items-center gap-3 ml-3">
+                        <button
+                            onClick={secondaryAction.onClick}
+                            className="h-9 min-w-[96px] px-4 border border-gray-300 rounded-md text-sm text-gray-800 hover:border-gray-400 hover:bg-gray-50 transition-colors"
+                        >
+                            {secondaryAction.label}
+                        </button>
+                        <button onClick={primaryAction.onClick} className="h-9 min-w-[96px] px-4 bg-gray-900 text-white rounded-md text-sm hover:bg-black transition-colors">
+                            {primaryAction.label}
+                        </button>
+                    </div>
+                </nav>
+            </div>
         </header>
     );
 }
