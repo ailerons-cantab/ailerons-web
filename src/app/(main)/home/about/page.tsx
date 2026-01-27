@@ -20,7 +20,7 @@ export default function AboutPage() {
                             confirmed bookings.
                         </p>
                         <div className="mt-6">
-                            <button className="rounded-sm bg-black px-4 py-2 text-xs font-medium text-white transition-opacity hover:opacity-90">
+                            <button className="rounded-sm bg-slate-900 px-4 py-2 text-xs font-medium text-white transition-opacity hover:opacity-90">
                                 Get started
                             </button>
                         </div>

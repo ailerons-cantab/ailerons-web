@@ -110,7 +110,7 @@ export default function FaqPage() {
                 <h2 className="text-2xl font-bold">Still have questions?</h2>
                 <p className="mt-3 text-gray-600"> Our support team is here to help. We typically respond within twenty-four hours.</p>
                 <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-                    <button className="px-6 py-3 rounded-md bg-slate-800 text-white hover:opacity-90">Contact support</button>
+                    <button className="px-6 py-3 rounded-md bg-slate-900 text-white hover:opacity-90">Contact support</button>
                     <button className="px-6 py-3 rounded-md border border-gray-300 hover:bg-gray-50">Live chat</button>
                 </div>
             </section>

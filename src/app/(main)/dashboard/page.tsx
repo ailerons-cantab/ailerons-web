@@ -30,7 +30,7 @@ export default function Dashboard() {
                 </div>
 
                 <div className="flex gap-2">
-                    <Link href="/home/travel-requests" className="px-4 py-2 bg-black text-white rounded hover:opacity-90 text-sm">View requests</Link>
+                    <Link href="/home/travel-requests" className="px-4 py-2 bg-slate-900 text-white rounded hover:opacity-90 text-sm">View requests</Link>
                     <Link href="/home/profile" className="px-4 py-2 border border-gray-300 rounded hover:bg-gray-50 text-sm">Edit profile</Link>
                 </div>
             </div>

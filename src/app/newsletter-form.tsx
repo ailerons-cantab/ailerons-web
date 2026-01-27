@@ -19,7 +19,7 @@ export default function NewsletterForm() {
                 placeholder="Your email address"
                 className="h-9 w-full rounded-l border border-gray-300 px-3 text-sm text-gray-900 placeholder:text-gray-400 outline-none focus:border-gray-900"
             />
-            <button type="submit" className="h-9 whitespace-nowrap rounded-r bg-black px-4 text-sm font-medium text-white transition-opacity hover:opacity-90">Subscribe</button>
+            <button type="submit" className="h-9 whitespace-nowrap rounded-r bg-slate-900 text-white rounded-md px-4 text-sm font-medium text-white transition-opacity hover:opacity-90">Subscribe</button>
         </form>
     );
 }

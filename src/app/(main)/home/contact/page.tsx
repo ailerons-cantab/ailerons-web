@@ -15,7 +15,7 @@ export default function ContactPage() {
                             competitive in a digital-first world.
                         </p>
                         <div className="mt-6 flex flex-wrap gap-3">
-                            <button className="rounded-sm bg-black px-4 py-2 text-xs font-medium text-white transition-opacity hover:opacity-90">Send message</button>
+                            <button className="rounded-sm bg-slate-900 px-4 py-2 text-xs font-medium text-white transition-opacity hover:opacity-90">Send message</button>
                             <button className="rounded-sm border border-gray-300 bg-white px-4 py-2 text-xs font-medium text-gray-900 transition-colors hover:border-gray-400">Schedule a call</button>
                         </div>
                     </div>
@@ -117,7 +117,7 @@ export default function ContactPage() {
                                 <textarea className="mt-1 min-h-[110px] w-full rounded border border-gray-300 px-3 py-2 text-sm outline-none focus:border-gray-900" />
                             </div>
                             <div className="flex justify-end">
-                                <button className="rounded-sm bg-gray-700 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-gray-800">Send message</button>
+                                <button className="rounded-sm bg-slate-900 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-gray-800">Send message</button>
                             </div>
                         </form>
                     </div>

@@ -13,7 +13,7 @@ export default function Intro() {
                     through ailerons. Submit competitive offers commission-free and
                     expand your business in the digital age.
                 </p>
-                <button className="px-6 py-2 bg-black text-white rounded hover:opacity-90">Get started</button>
+                <button className="px-6 py-2 bg-slate-900 text-white rounded hover:opacity-90">Get started</button>
             </div>
             <div className="flex justify-center">
                 <Image src="/airplane-placeholder.png" alt="airplane" width={400} height={300} className="border rounded" />

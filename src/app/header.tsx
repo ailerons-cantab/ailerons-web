@@ -34,7 +34,7 @@ export default function Header() {
                         >
                             {secondaryAction.label}
                         </button>
-                        <button onClick={primaryAction.onClick} className="h-9 min-w-[96px] px-4 bg-gray-900 text-white rounded-md text-sm hover:bg-black transition-colors">
+                        <button onClick={primaryAction.onClick} className="h-9 min-w-[96px] px-4 bg-slate-900 text-white rounded-md text-sm hover:opacity-90 transition-opacity">
                             {primaryAction.label}
                         </button>
                     </div>

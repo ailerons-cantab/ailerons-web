@@ -9,7 +9,7 @@ export default function SettingsPage() {
             <div>
                 <h1 className="text-3xl font-bold mb-4">Settings</h1>
                 <p className="text-gray-700 mb-6">Info about Settings will be available soon. Stay tuned!</p>
-                <button className="px-6 py-2 bg-black text-white rounded hover:opacity-90">Get started</button>
+                <button className="px-6 py-2 bg-slate-900 text-white rounded hover:opacity-90">Get started</button>
             </div>
             <div className="flex justify-center">
                 <Image src="/airplane-placeholder.png" alt="airplane" width={400} height={300} className="border rounded" />
