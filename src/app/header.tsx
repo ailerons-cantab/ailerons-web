@@ -15,8 +15,8 @@ export default function Header() {
         router.push("/home");
     };
 
-    const primaryAction = user ? { label: "Dashboard", onClick: () => router.push("/dashboard") } : { label: "Sign up", onClick: () => router.push("/register") };
-    const secondaryAction = user ? { label: "Log out", onClick: handleLogout } : { label: "Log in", onClick: () => router.push("/login") };
+    const primaryAction = user ? { label: "Dashboard", onClick: () => router.push("/dashboard") } : { label: "Sign up", onClick: () => router.push("/auth/register") };
+    const secondaryAction = user ? { label: "Log out", onClick: handleLogout } : { label: "Log in", onClick: () => router.push("/auth/login") };
 
     return (
         <header className="h-16 border-y border-gray-200 bg-white">

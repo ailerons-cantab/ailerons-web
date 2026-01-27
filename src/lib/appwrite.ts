@@ -80,3 +80,17 @@ export const normaliseUserFromAccount = (accountData: any): User => {
     name: accountData.name || undefined,
   };
 }
+
+export const sendPasswordRecovery = async (email: string) => {
+  const recoveryUrl = process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, "") + "/auth/recovery";
+
+  if (!recoveryUrl) {
+    throw new Error("Missing NEXT_PUBLIC_APP_URL (e.g. https://ailerons-web.vercel.app)");
+  }
+
+  return account.createRecovery(email, recoveryUrl);
+};
+
+export const resetPasswordWithRecovery = async (userId: string, secret: string, password: string) => {
+  return account.updateRecovery(userId, secret, password);
+};
