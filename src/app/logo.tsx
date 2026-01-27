@@ -17,7 +17,7 @@ export function Logo({ size = "md" }: LogoProps) {
     return (
         <button type="button" onClick={() => router.push("/home")} className={clsx("flex items-center p-2 cursor-pointer bg-transparent border-0")} aria-label="Go to home">
             <Image src="/ailerons_logo_black.svg" alt="ailerons logo" width={iconWidth} height={iconHeight} priority />
-            <span className={clsx("font-semibold tracking-tight lowercase", textSize)} style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif" }}>ailerons</span>
+            <span className={clsx("font-semibold tracking-tight lowercase", textSize)} style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif", color: 'black' }}>ailerons</span>
         </button>
     );
 }
